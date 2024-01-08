@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- border=테두리 width=가로 height=세로 align= 정렬 caption=테이블제목 -->
+    <table border="1" width="400px" height="300px" align="center">
+        <caption>테이블제목</caption>
+        <tr>              
+            <th>열이름1</th>
+            <th>열이름2</th>
+            <th>열이름3</th>
+        </tr>
+        <tr>
+            <td>Value1</td>
+            <td>Value2</td>
+            <td>Value3</td>
+        </tr>
+        <tr>
+            <td>Value1</td>
+            <td>Value2</td>
+            <td>Value3</td>
+        </tr>
+
+    </table>
+    <hr>
+
+    <!-- rowspan -->
+
+    <!-- table>tr*5>td*5{$} -->
+    <!-- 에밋으로 테이블 만들기 시도! table>tr*5>td*25{$} -->
+    <style>
+        .tbl_rowspan td{
+            width: 35px; height: 35px; border: 1px solid;
+            text-align: center;
+        }
+    </style>
+    <!-- 열병합 rowspan -->
+    <table class="tbl_rowspan">
+        <tr>
+            <td rowspan="2">1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td rowspan="5">5</td>
+        </tr>
+        <tr>
+            <!-- <td>6</td> -->
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+            <!-- <td>10</td> -->
+        </tr>
+        <tr>
+            <td>11</td>
+            <td rowspan="3">12</td>
+            <td>13</td>
+            <td>14</td>
+            <!-- <td>15</td> -->
+        </tr>
+        <tr>
+            <td>16</td>
+            <!-- <td>17</td> -->
+            <td>18</td>
+            <td>19</td>
+            <!-- <td>20</td> -->
+        </tr>
+        <tr>
+            <td>21</td>
+            <!-- <td>22</td> -->
+            <td>23</td>
+            <td>24</td>
+            <!-- <td>25</td> -->
+        </tr>
+    </table>
+    <hr>
+    <!-- 행병합 colspan -->
+    <table class="tbl_rowspan">
+        <tr>
+            <td colspan="2">1</td>
+            <!-- <td>2</td> -->
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td colspan="3">7</td>
+            <!-- <td>8</td> -->
+            <!-- <td>9</td> -->
+            <td>10</td>
+        </tr>
+        <tr>
+            <td colspan="5">11</td>
+            <!-- <td>12</td> -->
+            <!-- <td>13</td> -->
+            <!-- <td>14</td> -->
+            <!-- <td>15</td> -->
+        </tr>
+        <tr>
+            <td>16</td>
+            <td>17</td>
+            <td>18</td>
+            <td>19</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>21</td>
+            <td colspan="3">22</td>
+            <!-- <td>23</td> -->
+            <!-- <td>24</td> -->
+            <td>25</td>
+        </tr>
+    </table>
+
+    <hr>
+    <style>
+        .tbl_rowspan2 td{
+            width: 100px; height: 35px; border: 2px solid; border-color: red;
+            text-align: center;
+        }
+    </style>
+    <!-- table>tr*10>td*6{$} -->
+    <table class="tbl_rowspan2">
+        <caption>표 예제</caption>
+        <tr>
+            <td colspan="6">한국의 차</td>
+            <!-- <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td> -->
+        </tr>
+        <tr>
+            <td rowspan="6">뿌리차</td>
+            <td>인삼차</td>
+            <td rowspan="9">과일차</td>
+            <td>수정과</td>
+            <td rowspan="5">잎차</td>
+            <td>뽕잎차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>당귀차</td>
+            <!-- <td>3</td> -->
+            <td>유자차</td>
+            <!-- <td>5</td> -->
+            <td>감잎차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>생강차</td>
+            <!-- <td>3</td> -->
+            <td>구기자차</td>
+            <!-- <td>5</td> -->
+            <td>솔잎차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>칡차</td>
+            <!-- <td>3</td> -->
+            <td>대추차</td>
+            <!-- <td>5</td> -->
+            <td>극화차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>둥글레차</td>
+            <!-- <td>3</td> -->
+            <td>오미자차</td>
+            <!-- <td>5</td> -->
+            <td>이슬차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>마차</td>
+            <!-- <td>3</td> -->
+            <td>매실차</td>
+            <td rowspan="4">기타</td>
+            <td>두충차</td>
+        </tr>
+        <tr>
+            <td rowspan="3">곡물차</td>
+            <td>보리차</td>
+            <!-- <td>3</td> -->
+            <td>모과차</td>
+            <!-- <td>5</td> -->
+            <td>영지버섯차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>옥수수차</td>
+            <!-- <td>3</td> -->
+            <td>산수유차</td>
+            <!-- <td>5</td> -->
+            <td>귤강차</td>
+        </tr>
+        <tr>
+            <!-- <td>1</td> -->
+            <td>현미차</td>
+            <!-- <td>3</td> -->
+            <td>탕자차</td>
+            <!-- <td>5</td> -->
+            <td>쌍화차</td>
+        </tr>
+    </table>
+
+</body>
+</html>
