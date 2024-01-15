@@ -1,0 +1,26 @@
+/* div{
+    height: 100px; 
+    background-color: green;
+} */
+body{
+    width: 480px;
+    margin: 0 auto;
+}
+
+.wrapper>header>.header-right{
+    height: 140px;
+    background-color: white;
+}   
+.wrapper>header>.header-right>nav{
+    height: 90px !important;
+}
+.wrapper>header>.header-right>nav>.menu>li>.submenu{
+    /* z-index : 3; */
+}
+.wrapper>header>.header-right>.top-header>.menu{
+    display: none;
+}
+.wrapper>header>.header-right>.top-header>.mobile-menu{
+    display: block !important;
+    border: 0px;
+}
