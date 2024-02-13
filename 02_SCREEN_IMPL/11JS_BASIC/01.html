@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- alert : 경고창 표시 -->
+    <button onclick="alert('helloworld')">버튼01</button>                               <!-- alert 함수 이용 -->
+    <button onclick="alert(10+20)">버튼02</button>                                      <!-- 연산처리 가능 -->
+    <button onclick="alert('helloworld\nhelloworld\nhelloworld')">버튼03</button>       <!-- ESCAPE 문자(탈출, 원래 n의 그래픽 문자에서 탈출해 enter키 기능을 하겠다라는 의미) -->
+    <hr>
+    <a href="javascript:alert('helloworld')">버튼01</a>         <!-- javascript는 비교적 유연한 언어 -->
+    <a href="javascript:void(0)">버튼02</a>                     <!-- javascript 기능을 사용하지 않겠다. 프로젝트 작업할 때 기본으로 사용 -->
+    <a href="javascript:console.log(obj)">버튼03</a>            <!-- console.log로 obj의 데이터를 불러옴 -->
+    <hr>
+    <!-- 
+
+     -->
+    <button onclick="console.log(this)">버튼01</button>    <!-- this:  버튼에 대한 위치 정보 -->
+    <a href="javascript:console.log(this)">버튼02</a>       <!-- js 브라우저 내장함수 -->
+    <a href="" onclick="console.log(this)">버튼03</a>       <!-- 나오긴(onclick)하지만 바로 새로고침(a) -->
+    <a href="javascript:void(0)" onclick="console.log(this)">버튼04</a>     <!-- 버튼에 대한 정보가 나옴 -->
+
+    <script>
+        const obj = {'name' : '홍길동','age' : '28'};           // JSON형태(키,값)의 데이터를 obj라는 object로 위치값을 받아줌
+    </script>
+
+</body>
+</html>

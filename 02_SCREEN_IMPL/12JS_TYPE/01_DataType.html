@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <button id="btn_01">버튼</button>
+
+    <script>
+        // 자료형 : 데이터가 저장할 수 있는 자료형태를 제한하는 것!
+        // ----------------------------------------------------
+        // Number : 수(정수/실수)
+        document.write(10 + "<br>");
+        document.write(typeof 10 + "<br>");
+        document.write(typeof typeof 10 + "<br>");
+        document.write(10.7 + "<br>");
+
+        // String : 문자열
+        document.write(typeof "HELLO WORLD" + "<br>")
+
+        // Object : {key:value} 형태
+        document.write(typeof {name:'홍길동',age:'50'} + "<br>");
+        const btn_01_el = document.querySelector('#btn_01');
+        document.write(typeof btn_01_el  + "<br>");
+        console.log(btn_01_el);
+
+        // Boolean : true/false
+        document.write(typeof true + "<br>");
+        document.write(typeof false + "<br>");
+        document.write(typeof (10<20) + "<br>");
+        
+        // null
+        let val = null;     // Defined... null로 초기화 즉, 정의(이름+공간 부여)
+        document.write(val + "<br>");       // null 체크
+        console.log(typeof null);
+        // val.addEventListener('click',()=>{});
+        // Uncaught TypeError: Cannot read properties of null (reading 'addEventListener') at 01_DataType.html:38:13 (anonymous) @ 01_DataType.html:38
+
+        // undefiend
+        let val2;           // Undefined... 값이 지정x -> 공간형성x 즉, 선언(이름만 부여)
+        document.write(val2 + "<br>");
+        // val2.addEventListener('click',()=>{});
+        // Uncaught TypeError: Cannot read properties of undefined (reading 'addEventListener') at 01_DataType.html:41:14
+    </script>
+</body>
+</html>
