@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* position이 설정이 안되어있는 요소의 스타일엔 z-index 는 설정할 수 없다. */
+        /* z-index : auto 순서에 맞게 z-index 를 고려, 최대한 사용하지 않는 것이 좋음, 사용한다면 (1,2,3,4,5)정도의 범위 내에서만 사용 */
+        .parent{
+            width: 500px;
+            height: 500px;
+            background-color: royalblue;
+        }
+        .parent>.son{
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: 1px solid;
+        }
+        .parent>.son:nth-child(1){
+            position: relative;
+            
+            z-index: 5;
+        }
+        .parent>.son:nth-child(2){
+            position: relative;
+            top: -20px;
+            left: 20px;
+        }
+        .parent>.son:nth-child(3){}
+        .parent>.son:nth-child(4){}
+    </style>
+</head>
+<body>
+    
+
+    <!-- .parent>.son*4 -->
+    <div class="parent">
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <div class="son"></div>
+        <!-- 왜 크기가 딱 맞지 않는가?? -->
+        <!-- <div class="son"></div> -->
+    </div>
+
+
+</body>
+</html>
