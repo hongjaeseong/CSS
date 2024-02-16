@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 상위프로토타입 생성자
+        function Animal(name){
+            console.log('Animal 생성자 호출!');
+            this.name = name;
+        }
+        Animal.prototype.getName=function(){        // Animal객체의 getName함수 생성
+            console.log(`My Name is ${this.name}`);
+        };
+        // const ani = new Animal('뇽뇽이');
+        // console.log(ani);
+        // ani.getName();
+
+        // 하위프로토타입 생성자
+        function Dog(name,kind){
+            Animal.call(this,name);              // 상속관계 형성(상위 클래스의 생성자 호출)
+            console.log("Dog 생성자 호출!")
+            this.kind = kind;
+        }
+        Dog.prototype = Object.create(Animal.prototype);        // 상속관계 형성
+        
+        const tori = new Dog('토리','포메라니안');
+        console.log(tori);
+        
+        tori.getName(); 
+
+        function Tiger(name,location){
+
+        }
+
+
+    </script>
+
+</body>
+</html>
