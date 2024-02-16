@@ -1,0 +1,13 @@
+- workbench passworkd
+Zhfldk11!  (코리아11!)
+
+- ERD(Entity : 개체, 여기선 Table이라고 보면 됨.)
+
+- 발표 알고리즘
+Product
+Product_category - Product
+Product - Product_imageFile
+Product - Product_reply
+Product - Cart
+
+순으로 설명

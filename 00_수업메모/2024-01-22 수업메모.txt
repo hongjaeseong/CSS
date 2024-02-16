@@ -1,0 +1,249 @@
+24/01/22(월)
+DBMS : DB관리 소프트웨어
+
+
+* MySQL Commnutiy Downloads  방법
+google 검색 : mysql community download -> 좌측 상단 mysql community download 클릭
+-> MySQL Installer for Windows 클릭 -> 285.3M download 클릭 -> No thanks, just start my download 클릭
+
+* mysql->bin 주소 복사 후 환경변수 설정에서 붙여넣기
+
+* cmd 에서 mysql 실행방법
+mysql -u root(유저명) -p
+password 입력
+
+* workbench 실행
+Schemas = Database
+
+* show databases;		명령어	- 기본적으로 제공되는 스키마를 보여줌
++--------------------+
+| Database           |
++--------------------+
+| information_schema |		- 테이블, 컬럼, 권한 등 메타데이터가 저장
+
+| mysql              |			- MYSQL 서버 자체를 관리하기 위한 스키마
+				- 사용자정보, 권한 및 다양한 설정정보 저장
+
+| performance_schema |		- MYSQL 서버의 성능과 관련된 정보가 저장
+				- EX 스레드정보, Lock Table, 쿼리 실행시간 등
+
+| sys                |			- Mysql 8.x 부터 도입된 DB
+				- 성능 모니터링 및 최적화를 위한 도구와 뷰를 제공
++--------------------+
+4 rows in set (0.00 sec) 
+
+* SQL (문법)
+1. DB -> CRUD
+2. TABLE -> CRUD
+
+* SQL의 분류
+1. DDL : 구조를 만드는 역할
+2. DML : 데이터를 조작하는 역할 (SELECT)
+3. DCL : 권한을 조정하는 역할
+- * : 와일드카드
+
+* mysql> show tables;
++------------------------------------------------------+
+| Tables_in_mysql                                      |
++------------------------------------------------------+
+| columns_priv                                         |
+| component                                            |
+| db                                                   |
+| default_roles                                        |
+| engine_cost                                          |
+| func                                                 |
+| general_log                                          |
+| global_grants                                        |
+| gtid_executed                                        |
+| help_category                                        |
+| help_keyword                                         |
+| help_relation                                        |
+| help_topic                                           |
+| innodb_index_stats                                   |
+| innodb_table_stats                                   |
+| ndb_binlog_index                                     |
+| password_history                                     |
+| plugin                                               |
+| procs_priv                                           |
+| proxies_priv                                         |
+| replication_asynchronous_connection_failover         |
+| replication_asynchronous_connection_failover_managed |
+| replication_group_configuration_version              |
+| replication_group_member_actions                     |
+| role_edges                                           |
+| server_cost                                          |
+| servers                                              |
+| slave_master_info                                    |
+| slave_relay_log_info                                 |
+| slave_worker_info                                    |
+| slow_log                                             |
+| tables_priv                                          |
+| time_zone                                            |
+| time_zone_leap_second                                |
+| time_zone_name                                       |
+| time_zone_transition                                 |
+| time_zone_transition_type                            |
+| user                                                 |
++------------------------------------------------------+
+38 rows in set (0.00 sec)
+
+* 테이블 생성 실습
+mysql> create table tbl_product(
+    -> product_id int primary key,
+    -> product_name varchar(100) not null,
+    -> product_category varchar(10) null,
+    -> product_details varchar(1024) null,
+    -> reg_date datetime not null,
+    -> product_price int not null;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds 
+to your MySQL server version for the right syntax to use near '' at line 7
+라인 7번에서 에러 발생 --> 괄호 안닫음
+
+mysql> create table tbl_product(
+    -> prod_id int primary key,
+    -> prod_name varchar(100) not null,
+    -> prod_category varchar(10) null,
+    -> prod_details varchar(1024) null,
+    -> reg_date datetime not null,
+    -> prod_price int not null);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> show tables;
++------------------+
+| Tables_in_testdb |
++------------------+
+| tbl_product      |
+| tbl_user         |
++------------------+
+2 rows in set (0.00 sec)
+
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | int           | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+성공!!!!!!!!!!
+
+
+* tbl_product  의 구조를 다음과 같이 수정하세요
+Column 추가 : alter table 테이블명 add column 컬럼명 자료형 제약조건;
+Column 수정 : alter table 테이블명 change column 기존컬럼명 변경컬럼명 변경자료형 제약조건;
+Column 삭제 : alter table 테이블명 drop 컬럼명;
+
+mysql> use testdb;
+Database changed
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | int           | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table tbl_product add column amount int not null;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | int           | NO   |     | NULL    |       |
+| amount        | int           | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table tbl_product change column prod_price prod_price varchar(100) null;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | varchar(100)  | YES  |     | NULL    |       |
+| amount        | int           | NO   |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table tbl_product drop column prod_details;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| prod_id       | int          | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100) | NO   |     | NULL    |       |
+| prod_category | varchar(10)  | YES  |     | NULL    |       |
+| reg_date      | datetime     | NO   |     | NULL    |       |
+| prod_price    | varchar(100) | YES  |     | NULL    |       |
+| amount        | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> alter table tbl_product add column prod_details varchar(1024) null;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+---------------+------+-----+---------+-------+
+| Field         | Type          | Null | Key | Default | Extra |
++---------------+---------------+------+-----+---------+-------+
+| prod_id       | int           | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100)  | NO   |     | NULL    |       |
+| prod_category | varchar(10)   | YES  |     | NULL    |       |
+| reg_date      | datetime      | NO   |     | NULL    |       |
+| prod_price    | varchar(100)  | YES  |     | NULL    |       |
+| amount        | int           | NO   |     | NULL    |       |
+| prod_details  | varchar(1024) | YES  |     | NULL    |       |
++---------------+---------------+------+-----+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table table_product drop prod_details;
+ERROR 1146 (42S02): Table 'testdb.table_product' doesn't exist
+mysql> alter table tbl_product drop prod_details;
+Query OK, 0 rows affected (0.01 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc tbl_product;
++---------------+--------------+------+-----+---------+-------+
+| Field         | Type         | Null | Key | Default | Extra |
++---------------+--------------+------+-----+---------+-------+
+| prod_id       | int          | NO   | PRI | NULL    |       |
+| prod_name     | varchar(100) | NO   |     | NULL    |       |
+| prod_category | varchar(10)  | YES  |     | NULL    |       |
+| reg_date      | datetime     | NO   |     | NULL    |       |
+| prod_price    | varchar(100) | YES  |     | NULL    |       |
+| amount        | int          | NO   |     | NULL    |       |
++---------------+--------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+
+
+
+
+
