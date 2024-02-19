@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // 제어문은 조건식을 어떻게 설정하는 것이 매우 중요!
+
+        // prompt() : string(문자열) 입력받기
+        // let num = prompt('숫자를 입력해주세요...');
+        // //num = parseInt(num);
+        // console.log(typeof num);
+
+        // if - else
+        // // if(num%2==0 && typeof num == 'number')
+        // if(num%2==0) {
+        //     // 참인 경우 실행할 종속문장
+        //     document.write(`<h2>${num} 는 짝수입니다.</h2>`);
+        // } else {
+        //     // 거짓인 경우 실행할 종속문장
+        //     document.write(`<h2>${num} 는 홀수입니다.</h2>`);
+        // }
+        
+        // -----------------------------------
+        // if - else if - else(다중분기 -> 조건식이 여러개)
+        // ex) 점수에 따라 성적을 나누는 경우
+        // -----------------------------------
+        let num = prompt('점수를 입력해주세요...');
+        //num = parseInt(num);
+        console.log(typeof num)
+
+        // if(num >= 100) {
+        //     // 100점인 경우
+        //     alert("A");
+        // } else if (num >= 90) {     // num가 100미만인 상태에서 else if문으로 들어오는 것!
+        //     // 90~99점 사이
+        //     alert("B");
+        // } else if (num >= 80) {
+        //     // 80~89점 사이
+        //     alert("C");
+        // } else if (num >= 70) {
+        //     // 70~79점 사이
+        //     alert("D");
+        // } else {
+        //     // 그외
+        //     alert("F");
+        // }
+
+        // 순서를 오름차순으로 바꿔서 작성해보기
+        if(num <= 69) {
+            alert("F");
+        } else if (num <= 79) {
+            alert("D");
+        } else if (num <= 89) {
+            alert("C");
+        } else if (num <= 99) {
+            alert("B");
+        } else {
+            alert("A");
+        }
+
+
+
+    </script>
+
+
+</body>
+</html>
