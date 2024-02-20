@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        // 문제
+        function callbackfunc(func1,func2,func3,...args){       // func1,func2,func3 <= proc1,proc2,proc3
+            const arr1 = func1(args);   // 가변인자를 받아서 그 배열요소 중 숫자만 필터링된 배열 반환
+            console.log("숫자필터링된 배열 : " + arr1);
+            const arr2 = func2(arr1);   // 숫자만 필터링된 배열 중 짝수만 걸러서 배열로 반환
+            console.log("짝수만 필터링된 배열 : " + arr2);
+            const arr3 = func3(arr2);   // 짝수로 걸러진 배열의 합을 구함
+            return arr3;
+        }
+        function proc1(arr){ return arr.filter((item) => typeof item == 'number')}  // 가변인자배열 중 숫자반환
+        function proc2(arr){ return arr.filter((item) => item%2 == 0)}              // 숫자 중에 짝수만 필터링된 배열 반환
+        function proc3(arr){ return arr.reduce((sum,item)=>sum+item, 0)}            // 짝수의 합을 반환
+
+        const rVal = callbackfunc(proc1,proc2,proc3, 10,20,'ture',11,152,999,24,'문자열',null,155,24);  // rVal는 arr3(반환값)의 주소를 참조
+        console.log('rVal : ',rVal);
+
+    </script>
+
+</body>
+</html>

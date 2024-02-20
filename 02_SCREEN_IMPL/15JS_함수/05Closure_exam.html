@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 문제
+        // 다음 빈칸을 완성하세요
+        const  person = ()=>{
+            this.name;
+            this.age;
+            this.addr;
+            this.id;
+            setName = (name)=>{ this.name = name;}
+            setAge = (age)=>{this.age = age;}
+            setAddr = (addr)=>{this.addr = addr;}
+            setId= (id)=>{this.id = id;}
+            getName = ()=>{return name;}
+            getAge = ()=>{return age;}
+            getAddr = ()=>{return addr;}
+            return{
+                setName : setName,
+                setAge : setAge,
+                setAddr : setAddr,
+                setId : setId,
+                getName : getName,
+                getAge : getAge,
+                getAddr : getAddr,
+            }
+        }
+        const 홍길동 = person();
+        홍길동.setName("홍길동");
+        홍길동.setAge("55");
+        홍길동.setAddr("대구")
+        홍길동.setId("111111-2222222");
+        console.log(홍길동);
+        console.log(홍길동.getName());
+        console.log(홍길동.getAge());
+        console.log(홍길동.getAddr());
+
+    </script>
+
+</body>
+</html>

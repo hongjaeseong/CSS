@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 콜백함수(Call Back)
+        // 참고자료 : https://www.freecodecamp.org/korean/news/https-www-freecodecamp-org-news-javascript-callback-functions-what-are-callbacks-in-js-and-how-to-use-them/
+        // 함수를 호출하는 시점이 바뀌어진 형태의 함수
+        // 기존방식 : 사용자(개발자)가 함수를 직접 정의 -> 정의된 함수를 호출(Call)하여 결과를 반환하는 방식
+        // CallBack : 콜백함수의 인자로 수행로직(()=>{},function(){})을 전달하여 콜백함수로부터 처리된 결과를
+        // 반환받은 형태
+
+        // function func(n1,n2){
+        //     const result = n1+n2;
+        //     return result;
+        // }
+        // const r = func(10,20);      // Call
+        // console.log(r);
+
+        // function callbackFunc(n1,n2,func){      // 콜백함수 : 매개변수로 함수의 위치정보 즉 로직을 받음
+        //     const result = func(n1,n2);
+        //     return result;
+        // }
+        // function sum(n1,n2){return n1+n2};
+        // function sub(n1,n2){return n1-n2};
+        // function mul(n1,n2){return n1*n2};
+        // function div(n1,n2){return n1/n2};
+
+        // const r1 = callbackFunc(20,4,sum);      // sum함수의 위치정보를 전달하는 것
+        // console.log(r1);
+        // const r2 = callbackFunc(20,4,sub);      // sub함수의 위치정보를 전달하는 것
+        // console.log(r2);
+        // const r3 = callbackFunc(20,4,mul);      // mul함수의 위치정보를 전달하는 것
+        // console.log(r3);
+        // const r4 = callbackFunc(20,4,div);      // div함수의 위치정보를 전달하는 것
+        // console.log(r4);
+
+
+        // 콜백함수 예제 02
+        const data = [11,20,41,15,7,1,51];  // data 배열 객체 선언 및 초기화
+
+        function simForEach(data,func){     // 콜백함수 선언 // func <= (item)=>{console.log(item);});
+            // // 오름차순 정렬후(버블정렬)
+            // // 참고자료 : https://www.zerocho.com/category/Algorithm/post/57f67519799d150015511c38
+            // var length = data.length;
+            // var i, j, temp;
+
+            // for (i = 0; i < length - 1; i++) {              // 순차적으로 비교하기 위한 반복문
+            //     for (j = 0; j < length - 1 - i; j++) {      // 끝까지 돌았을 때 다시 처음부터 비교하기 위한 반복문
+            //         if (data[j] > data[j + 1]) {            // 두 수를 비교하여 앞 수가 뒷 수보다 크면
+            //             temp = data[j];                     // 두 수를 서로 바꿔준다
+            //             data[j] = data[j + 1];
+            //             data[j + 1] = temp;
+            //         }
+            //     }
+            // }
+            const val = data.sort((a,b)=>{return a-b;})     // sort함수를 이용해서 오름차순 정렬
+                .reduce((sum,item)=>{return sum+item},0)
+            console.log(data);
+            console.log("-----------------------------");
+            console.log(val);
+            console.log("-----------------------------");
+            data.push(val);                                 // val값이 배열끝에 삽입됨
+
+            for(idx in data){
+                func(data[idx]);
+            }
+        }
+
+        simForEach(data,(item)=>{       // simForEach함수 호출(data전달, 로직 전달)
+            console.log(item);
+        });
+        console.log("-----------------------------");
+        console.log(data);
+
+
+    </script>
+
+</body>
+</html>
