@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <input type="checkbox" id="chk" />
+        <label for="">체크박스</label>
+    </div>
+
+    <script>
+        // 체크박스의 change Event 처리
+
+        const chkEl = document.getElementById('chk');       // 요소 탐색
+        chkEl.addEventListener('change',function(event){         // change Event 처리
+            console.log('change..', event);
+            if(event.target.checked) {
+                console.log('Checked..');
+            } else {
+                console.log('UnChecked..');
+            }
+        });
+
+
+
+    </script>
+
+
+
+
+</body>
+</html>
