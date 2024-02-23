@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <ul>
+        <li>ITEM1</li>
+        <li id="li2">ITEM2</li>         <!-- id가 'li2'인 요소-->
+        <li class="item">ITEM3</li>
+        <li>ITEM4</li>
+        <li class="item">ITEM5</li>
+        <li>ITEM6</li>
+        <li class="item">ITEM7</li>
+    </ul>
+
+    <script>
+        // JavaScript에서 노드란?
+        // JavaScript에서 "노드(Node)"는 일반적으로 두 가지 다른 맥락에서 사용됩니다. 
+        // 1. 하나는 클라이언트 측 웹 개발에서 문서 객체 모델(DOM)에서 노드를 의미하고,
+        // 2. 다른 하나는 서버 측 JavaScript 환경에서 Node.js를 가리킵니다.
+        
+        // 1. 클라이언트 측 JavaScript에서의 노드(Node):
+        // JavaScript를 사용하여 웹 페이지의 DOM을 조작할 때, 
+        // 문서 객체 모델(DOM)은 웹 페이지의 구조화된 표현을 제어합니다.
+        // DOM은 트리 구조로 되어 있으며, 이 트리 구조에서 각 요소는 "노드"로 간주됩니다.
+        // 즉 HTML 요소, 속성, 텍스트 노드 등이 모두 DOM의 노드입니다. 
+        // JavaScript를 사용하여 웹 페이지의 DOM을 조작할 때, 이러한 노드를 선택하고 조작할 수 있습니다.
+
+        // 2. 서버 측 JavaScript(Node.js)에서의 노드(Node):
+        // Node.js는 Chrome V8 JavaScript 엔진으로 빌드된 JavaScript 런타임 환경으로, 
+        // 서버 측 애플리케이션을 구축하는 데 사용됩니다. Node.js는 비동기 이벤트 기반 아키텍처를 사용하여
+        // JavaScript를 서버 측에서 실행할 수 있도록 지원합니다. 
+        // 이 때, "노드"는 주로 코드 실행 흐름을 나타내거나 파일 시스템에서 읽거나 쓰는 작업 등을 수행하는데 사용되는 개념입니다. 
+        // Node.js에서의 노드는 JavaScript 코드가 실행되는 단위를 나타내며, 
+        // 이벤트 기반의 비동기 처리를 통해 효율적인 서버 측 애플리케이션을 작성할 수 있게 해줍니다.
+
+        // 따라서, JavaScript에서 "노드(Node)"는 주로 DOM에서의 요소를 나타내거나, 
+        // Node.js에서의 코드 실행 단위를 의미합니다.
+
+        // 요소 탐색
+        
+        // getElementById('Id')
+        const li2 = document.getElementById('li2');
+        li2.style.backgroundColor='orange';
+        // querySelector('selector')
+        const SEl = document.querySelector('.item');
+        SEl.style.backgroundColor='green';
+        // querySelectorAll ('selector')
+        const SEls = document.querySelectorAll('.item');
+        console.log(SEls);
+        SEls.forEach(item=>{
+            item.style.color="blue";
+        });
+        // for in문
+        const liEls = document.getElementsByTagName('li');
+        // console.log(liEls);
+        // for(i in liEls) {
+        //     console.log(i);
+        //     liEls[i].style.width="200px";
+        // }
+
+        // for of문
+        // for(item of ilEls) {
+        //     console.log(item);
+        //     item.style.width="200px";
+        // }
+
+        // 배열함수 forEach(x)
+        // liEls.forEach(item=>{
+        //     console.log(liEls);
+        // })
+        
+        // Array.from() - 배열함수 사용형태로 변환
+        Array.from(liEls).forEach(item=>{
+            console.log(liEls);
+            item.style.fontWeight="800";
+            item.addEventListener('click',function(){
+                alert('clicked..contents : '+item.innerHTML)
+            })
+        })
+
+
+    </script>
+
+</body>
+</html>

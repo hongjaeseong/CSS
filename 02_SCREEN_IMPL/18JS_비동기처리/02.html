@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .boxs{
+            display: flex;
+            justify-content: center;
+        }
+        .box{
+            width: 300px; height: 80vh; overflow:auto; border: 1px solid; margin: 10px;
+        }
+        .box2{
+            width: 300px; height: 80vh; overflow:auto; border: 1px solid; margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <button onclick="start()">시작1</button> | <button onclick="stop()">정지1</button> |
+    <button onclick="start2()">시작2</button> | <button onclick="stop2()">정지2</button> |
+    <hr>
+    <div class="boxs">
+        <div class="box"></div>
+        <div class="box2"></div>
+    </div>
+
+    <script>
+        // 비동기처리 함수
+        // setInterval(()=>{},millisecond)    : 주기마다 처리
+        // clearInterval(id)                  : setInterval 해제
+
+        // 독자적인 흐름을 파악하는 코드
+        let id;                                         // 함수 식별를 위한 변수 선언
+        let id2;
+        const boxEl = document.querySelector('.box');
+        const boxE2 = document.querySelector('.box2');
+
+        function start(){
+            // 
+            id = setInterval(()=>{
+                boxEl.innerHTML+="BATCH PROCESS...<br>";
+            },1000)
+        }
+
+        function stop(){
+            clearInterval(id);
+            boxEl.innerHTML+="BATCH STOP...<br>";
+        }
+
+        function start2(){
+            // 
+            id2 = setInterval(()=>{
+                boxE2.innerHTML+="BATCH2 PROCESS...<br>";
+            },1000)
+        }
+
+        function stop2(){
+            clearInterval(id2);
+            boxE2.innerHTML+="BATCH2 STOP...<br>";
+        }
+
+    </script>
+
+</body>
+</html>
