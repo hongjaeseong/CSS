@@ -1,0 +1,47 @@
+	
+	정수 타입 		: byte, short(부호o), char(부호x), int, long
+	char 타입 		: ' ' 
+	String 타입 		: " "
+	실수 타입 		: double , float
+	논리 타입 		: boolean
+
+	확인 문제1
+
+	정수타입 
+	1byte : byte 
+	2byte : short(부호o), char(부호x)
+	4byte : int
+	8byte : long
+
+	실수타입
+	4byte : float
+	8byte : double
+
+	논리타입
+	1byte : boolean
+
+
+	확인문제2
+
+		맞는 코드인지 틀린 코드인지 확인 
+//		byte var = 200;							// ( x 	)	
+// 		byte : 부호 지원o (-128 ~ 127) // Type mismatch: cannot convert from int to byte
+//		char var = 'AB';						// ( x 	)	
+// 		Invalid character constant -> String var = "AB";
+//		char var =65;							// ( o 	)	
+//		long var =50000000000;					// ( x 	)	
+// 		The literal 50000000000 of type int is out of range(int의 범위를 넘음) -> long var =50000000000L;
+//		float var = 3.14;						// ( x	)	
+//      Type mismatch: cannot convert from double to float // float var = 3.14F; // 실수 기본자료형이 double이고 double자료형을 float자료형에 넣으려고 하니 오류 발생
+//		double var = 100.0;						// ( o 	)
+//		String var = "나의직업은 "개발자" 입니다.";	// ( x 	)	
+// 		Syntax error on token "개발자", invalid AssignmentOperator // String var = "나의직업은 '개발자' 입니다.";
+//		boolean var = 0;						// ( x 	)	
+// 		Type mismatch: cannot convert from int to boolean // boolean var = false; // boolean var = (0 == 1);
+//		int v2 = 1e2;							// ( x	)   
+// 		Type mismatch: cannot convert from double to int // 1e2 : 100.0
+//		float = 1e2f;							// ( x 	)	
+// 		The left-hand side of an assignment must be a variable
+// 		해당 오류 메시지 "할당문의 좌변은 변수여야 합니다"는 변수가 아닌 곳에 값을 할당하려고 할 때 발생한다. 
+//		Java에서 할당문의 좌변은 변수의 이름이나 배열 요소와 같은 변수여야 한다.
+
